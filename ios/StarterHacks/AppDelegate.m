@@ -13,6 +13,7 @@
 #import <UMCore/UMModuleRegistry.h>
 #import <UMReactNativeAdapter/UMNativeModulesProxy.h>
 #import <UMReactNativeAdapter/UMModuleRegistryAdapter.h>
+#import <RadarSDK/RadarSDK.h>
 
 @implementation AppDelegate
 
@@ -41,6 +42,7 @@
   NSArray<id<RCTBridgeModule>> *extraModules = [_moduleRegistryAdapter extraModulesForBridge:bridge];
   // You can inject any extra modules that you would like here, more information at:
   // https://facebook.github.io/react-native/docs/native-modules-ios.html#dependency-injection
+  [Radar initializeWithPublishableKey:prj_live_pk_47e77da5365a55ff13b52e251c00b8e310e79770];
   return extraModules;
 }
 

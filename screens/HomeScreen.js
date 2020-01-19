@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import Radar from 'react-native-radar';
 
 import { MonoText } from '../components/StyledText';
 
@@ -30,9 +31,9 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
+          {/* <DevelopmentModeNotice /> */}
 
-          <Text style={styles.getStartedText}>Get started by opening</Text>
+          <Text style={styles.getStartedText}>Test started by opening</Text>
 
           <View
             style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
