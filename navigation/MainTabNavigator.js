@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
+import PolygonCreator from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
@@ -15,20 +15,20 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    Home: PolygonCreator,
   },
   config
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'Create Boundary',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `ios-map${focused ? '' : '-outline'}`
+          : 'md-map'
       }
     />
   ),
@@ -44,9 +44,9 @@ const LinksStack = createStackNavigator(
 );
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+  tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-home' : 'md-home'} />
   ),
 };
 
@@ -60,9 +60,9 @@ const SettingsStack = createStackNavigator(
 );
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+  tabBarLabel: 'Current Location',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-search' : 'md-search'} />
   ),
 };
 
