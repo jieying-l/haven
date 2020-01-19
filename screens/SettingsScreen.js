@@ -119,6 +119,9 @@ export default class SettingsScreen extends React.Component {
   };
 }
 
+SettingsScreen.navigationOptions = {
+  title: 'Haven / Current Location',
+};
 
 const styles = StyleSheet.create({
   map: {
