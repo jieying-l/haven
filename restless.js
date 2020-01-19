@@ -27,3 +27,27 @@ function getCoordinates() {
   }
   return polygons;
 }
+
+function createGeofence(){
+  let data = {
+    method: 'POST',
+    body: JSON.stringify({
+      description: 'Test Geofence',
+      tag: 'venue',
+      externalID: 3,
+      type: 'circle',
+      coordinates: '[-73.975363,40.783826]',
+      radius: '100',
+    }),
+    headers: {
+      'Authorization':  'prj_live_sk_95ba8425a6e2354d531ebd749ba2313b8a48a04b',
+    }
+  }
+  fetch('https://api.radar.io/v1/geofences', data)
+    .then((response) => response.json())
+      .then((responseJson) => {
+        console_log(response);
+      });
+    }).catch((error) => {
+      console.error(error);
+});
