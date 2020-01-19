@@ -3,7 +3,7 @@ package com.starterhacks;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import io.radar.react.RNRadarPackage;
+
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -21,6 +21,8 @@ import org.unimodules.core.interfaces.SingletonModule;
 import expo.modules.constants.ConstantsPackage;
 import expo.modules.permissions.PermissionsPackage;
 import expo.modules.filesystem.FileSystemPackage;
+import io.radar.react.RNRadarPackage;
+import io.radar.sdk.Radar;
 
 import java.util.Arrays;
 import java.util.List;
@@ -64,5 +66,6 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+    Radar.initialize("prj_live_pk_47e77da5365a55ff13b52e251c00b8e310e79770");
   }
 }
