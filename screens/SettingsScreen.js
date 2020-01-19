@@ -5,6 +5,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import Radar from 'react-native-radar';
 import { render } from 'react-dom';
 import MapView, { Marker, Callout, ProviderPropType } from 'react-native-maps';
+import flagImg from 'C:\\Users\\Stephanie\\haven\\assets\\images\\flag-blue.png';
 
 
 // export default function SettingsScreen() {
@@ -14,23 +15,26 @@ export default class SettingsScreen extends React.Component {
     // const [status, setStatus] = React.useState("Loading...");
     
   }
-  state = { };
+  state = { latitude: null, longitude: null};
   
   componentDidMount() {
+    console.log("it mounting");
     Radar.setUserId("1");
     Radar.requestPermissions(true);
-
-    Radar.trackOnce().then((result) => {
-      setStatus(result.location);
+    Radar.trackOnce().then(async (result) => {
+      await this.setState(result.location);
       console.log(result);
-      console.log(status)
+      console.log(this.state);
+      console.log(this.state.latitude);
       // do something with result.location, result.events, result.user.geofences
     }).catch((err) => {
       // optionally, do something with err
-    });
+      console.log(err);
+    })
+
   };
   
-  // React.useEffect(()=>{
+  // useEffect(()=>{
   //   Radar.setUserId("1");
   //   Radar.requestPermissions(true);
   //   // Radar.getPermissionsStatus().then((status) => {
@@ -48,11 +52,18 @@ export default class SettingsScreen extends React.Component {
   // }, []);
   // return (
   // <Text>{status}</Text>);
+
+  // getLocation() {
+  //   }
+
   render() {
+    if(!this.state.longitude){
+      return <View><Text>Loading...</Text></View>
+    }
     
     return (
      <View>
-       <Text>hi we're here</Text>
+       <Text>{this.state.latitude}</Text>
        <Text>line 2</Text>
        <Text>hi we're here</Text>
        <Text>line 2</Text>
@@ -92,27 +103,41 @@ export default class SettingsScreen extends React.Component {
       <MapView
           provider={"google"}
           style={styles.map}
-          region={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+          initialRegion={{
+            latitude: this.state.latitude,
+            longitude: this.state.longitude,
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01,
           }}
           onPress={this.onMapPress}
           loadingEnabled
           loadingIndicatorColor="#666666"
           loadingBackgroundColor="#eeeeee"
         
-        ></MapView>
-        <Marker
+        >
+        {/* <Marker
             coordinate={{
               latitude: 40,
               longitude: -120,
             }}
-            centerOffset={{ x: -18, y: -60 }}
+            centerOffset={{ x: -42, y: -60 }}
+            anchor={{ x: 0.84, y: 1 }}
+          >
+            <Callout>
+              <View>
+                <Text>This is a plain view</Text>
+              </View>
+            </Callout>
+          </Marker> */}
+          <Marker
+            coordinate={{
+              latitude: this.state.latitude,
+              longitude: this.state.longitude,
+            }}
+            centerOffset={{ x: 0, y: 0 }}
             anchor={{ x: 0.69, y: 1 }}
             // image={flagImg}
-          />
+          ></Marker></MapView>
         </View>
     );
   };
