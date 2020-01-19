@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Jan 19 04:01:48 EST 2020
+#Sun Jan 19 12:05:13 EST 2020
 56.path=lib/x86/libfolly_json.so
 5.base=C\:\\Users\\Stephanie\\haven\\android\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\0
 42.base=C\:\\Users\\Stephanie\\haven\\android\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\0

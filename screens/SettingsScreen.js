@@ -34,27 +34,7 @@ export default class SettingsScreen extends React.Component {
 
   };
   
-  // useEffect(()=>{
-  //   Radar.setUserId("1");
-  //   Radar.requestPermissions(true);
-  //   // Radar.getPermissionsStatus().then((status) => {
-  //   //   setStatus(status);
-  //   //   // do something with status
-  //   // });
-  //   Radar.trackOnce().then((result) => {
-  //     setStatus(result.location);
-  //     console.log(result);
-  //     console.log(status)
-  //     // do something with result.location, result.events, result.user.geofences
-  //   }).catch((err) => {
-  //     // optionally, do something with err
-  //   });
-  // }, []);
-  // return (
-  // <Text>{status}</Text>);
 
-  // getLocation() {
-  //   }
 
   render() {
     if(!this.state.longitude){
@@ -131,54 +111,13 @@ export default class SettingsScreen extends React.Component {
             radius={300}
             strokeWidth={2}
             strokeColor="#3399ff"
-            fillColor="#80bfff"
+            fillColor="#rgba(128,191,255,0.5)"
           />
-          {/* <Polygon
-              // key={polygon.id}
-              coordinates={{latitude: 43.47296086337492, longitude: -80.53938946589909},
-                           {latitude: 43.47353701775392, longitude: -80.54095587596379},
-                           {latitude: 43.4733112281788, longitude: -80.54095587596379},
-                           {latitude: 43.472984221091714, longitude: -80.54118118152104},
-                           {latitude: 43.47250149311015, longitude: -80.54077348575078},
-                           {latitude: 43.472275699666184, longitude: -80.54020485743962},
-                           {latitude: 43.4723146296305, longitude: -80.5395182119318},
-                           {latitude: 43.47296086337492, longitude: -80.5395182119318}
-                          }
-              // holes={polygon.holes}
-              strokeColor="#F00"
-              fillColor="rgba(255,0,0,0.5)"
-              strokeWidth={1}
-            /> */}
           </MapView>
         </View>
     );
   };
 }
-//     return (
-
-//         // <Text>{status}</Text>
-//   //       <MapView
-//   //         initialRegion={{
-//   //         latitude: 37.78825,
-//   //         longitude: -122.4324,
-//   //         latitudeDelta: 0.0922,
-//   //         longitudeDelta: 0.0421,
-//   //         }}
-//   //         style={styles.map}
-//   // />
-        
-      
-
-//     );
-//   // React.useEffect(() => {
-    
-//   // }, [])
-
-//   // SettingsScreen.navigationOptions = {
-//   //   title: 'app.json',
-//   // };
-  
-// }
 
 
 const styles = StyleSheet.create({
