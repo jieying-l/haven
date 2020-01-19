@@ -14,6 +14,7 @@ import {
 import MapView, {
   Polygon,
   ProviderPropType,
+  Marker,
 } from 'react-native-maps';
 
 import Radar from 'react-native-radar';
@@ -26,8 +27,8 @@ export default class PolygonCreator extends React.Component {
 
     this.state = {
       region: {
-        latitude: 40,
-        longitude: -80,
+        latitude: 43.47321319580078,
+        longitude: -80.5396728515625,
         latitudeDelta: 0.1,
         longitudeDelta: 0.1,
       },
@@ -139,6 +140,15 @@ export default class PolygonCreator extends React.Component {
               strokeWidth={1}
             />
           ))}
+          <Marker
+            coordinate={{
+              latitude: 43.47321319580078,
+              longitude: -80.5396728515625,
+            }}
+            centerOffset={{ x: 0, y: 0 }}
+            anchor={{ x: 0.69, y: 1 }}
+            // image={flagImg}
+          ></Marker>
           {this.state.editing && (
             <Polygon
               key={this.state.editing.id}
