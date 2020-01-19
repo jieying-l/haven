@@ -45,4 +45,6 @@ target 'StarterHacks' do
   use_unimodules!
   pod 'react-native-radar', :path => '../node_modules/react-native-radar'
 
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+
 end
